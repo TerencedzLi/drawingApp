@@ -1,0 +1,83 @@
+canvas { 
+    background: url(/img/background.png) no-repeat center;
+    background-size: 100% 100%; 
+    border: black solid;
+    width:400px; height: 500px;
+    margin: 0 auto;
+    display:block;
+}
+/*AA3939 red , 2D882D green, 226666 turq, AA6C39 brown */
+form {
+    position: relative; 
+    top:0px
+    display:inline-block;
+}
+
+.lehead {
+    background-color: #246D5F;
+    text-align: center;
+    font-family: 'Lobster', cursive;
+    padding: 1px 5px;
+}
+
+#colorcontainer {
+    position: fixed;
+    top: 30%;
+}
+
+#clear {
+    position:fixed;
+    top:20%;
+}
+#topdf {
+    position:fixed;
+    top: 25%;
+}
+.color {
+    width: 30px;
+    height: 30px;
+    /*display:inline-block;*/
+    position: relative;
+}
+            
+body {
+    background-color: #2C4770;
+}
+
+html {
+    overflow: scroll;
+}
+
+.color:active {
+    opacity:0.5;
+}
+
+#opacitylabel{
+    /*position: fixed;*/
+    /*top:35%;*/
+    background-color: grey;
+}
+/*#color {
+    width:100px,
+    height:100px;
+}*/
+/*.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: red;
+    cursor: inherit;
+    display: block;
+}*/

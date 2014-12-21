@@ -1,0 +1,59 @@
+doctype html
+
+html
+    head
+        title CASCON MAP LAYOUT
+        link(rel="stylesheet",href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
+        link(rel="javascript",href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js")    
+        link(href='http://fonts.googleapis.com/css?family=Lobster',rel='stylesheet',type='text/css')
+        link(rel="stylesheet",href="/css/styles.css",type='text/css')
+
+            
+    
+    body
+        div.lehead 
+            h1 #{title}
+        div.form-group    
+            form(method="post", enctype="multipart/form-data", action="/upload")
+                input(type="file", name="file")
+                input(class="submit", type="submit", value="UPLOAD")
+        button.bigbutton.btn.btn-lg.btn-danger#clear CLEAR
+
+        button.bigbutton.btn.btn-lg.btn-danger#topdf SAVE AS PDF
+
+        canvas#draw
+
+
+        div#colorcontainer
+            div(data-color="47,47,47", class="color", style="background:rgb(37,37,37);")
+            div(data-color="109,73,37", class="color", style="background:rgb(109,73,37);")
+            div(data-color="233,34,41", class="color", style="background:rgb(233,34,41);")
+            div(data-color="57,178,73", class="color", style="background:rgb(57,178,73);")
+            div(data-color="247,219,31", class="color", style="background:rgb(247,219,31);")
+            div(data-color="248,172,60", class="color", style="background:rgb(248,172,60);")
+            div(data-color="142,42,140", class="color", style="background:rgb(142,42,140);")
+            div(data-color="77,42,255", class="color", style="background:rgb(77,42,255);")
+            div(data-color="255,255,255", class="color", style="background:rgb(255,255,255);")
+            label#opacitylabel Opacity
+                input(type="range", min="0", max="255", value="200", id="opacity")
+
+        script(src="/socket.io/socket.io.js")
+        script(src="http://code.jquery.com/jquery-1.8.0.min.js")
+        script(src="http://parall.ax/parallax/js/jspdf.js")
+        script(src="/js/socket.js")
+        script(src="/js/paper.js")
+        script(type="text/paperscript", src="/js/draw.js", canvas="draw")
+        script.
+            $('.submit').click(function(){
+                var refresh = 1;
+                io.emit("PossibleRefresh", refresh); 
+            
+            });
+
+            io.on('PossibleRefresh', function(data){
+                if(data){
+                alert("New Background may have been added, please refresh page!");
+                }
+            })
+        
+        
